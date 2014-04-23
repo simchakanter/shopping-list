@@ -1,6 +1,6 @@
-* {
+/** {
 	outline: 1px solid red;
-}
+}*/
 
 body {
 	background-color: #fff;
@@ -9,7 +9,7 @@ body {
 .container {
 	background-color: #fff;
 	margin: 0 auto;
-	width: 800px;
+	width: 650px;
 }
 
 .pull-right {
@@ -25,6 +25,7 @@ h1 {
 	font-size: 2em;
 	text-align: center;
 	margin-top: 20px;
+	margin-bottom: 30px;
 }
 
 .list-container {
@@ -42,10 +43,53 @@ h1 {
 }
 
 .list-header a {
-	padding-top: 40px;
+	margin-top: 10px;
+	margin-left: 10px;
+	display: block;
 }
 
 .items {
-	min-height: 500px;
+	/*min-height: 500px;*/
 	width: 100%;
+}
+
+.item td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.item {
+	border-bottom: 1px solid gray;
+}
+
+.checkbox {
+	width: 20px;
+}
+
+.checkbox-complete {
+	background-image: url('../images/checkround.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 13px;
+}
+
+.checkbox-incomplete:hover {
+	background-image: url('../images/checkmark.png');
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: 13px;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.item-delete {
+	width: 20px;
+/*	background: url('../images/trash.png') no-repeat center center;
+	background-size: 15px;*/
+}
+
+.item-delete img {
+	width: 75%;
 }

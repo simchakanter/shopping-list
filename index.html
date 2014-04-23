@@ -10,21 +10,17 @@
 	<div class="container">
 		<h1>Shopping List</h1>
 		<div class="list-container">
-			<div class="list-header">
-				<a href="#">Show completed</a>
-				<div class="pull-right">
-					<div class="pull-left">
-						<button>Add Group</button>
-						<button>Add Section</button>
-					</div> <!-- end header buttons -->
-				</div> <!-- end header buttons container -->
-			</div> <!-- end list header -->
 			<table class="items">
 				<tbody>
-					<tr>
-						<td class="checkbox"></td>
-						<td class="item-name">Enter your first item</td>
-						<td class="item-menu"></td>
+					<tr class="item">
+						<td class="checkbox checkbox-complete"></td>
+						<td class="item-name completed" contenteditable>Enter your first item</td>
+						<td class="item-delete"><a href="#"><img src="images/trash.png" alt="Delete"></a></td>
+					</tr>
+					<tr class="item">
+						<td class="checkbox checkbox-incomplete"></td>
+						<td class="item-name" contenteditable>Enter your next item</td>
+						<td class="item-delete"><a href="#"><img src="images/trash.png" alt="Delete"></a></td>
 					</tr>
 				</tbody>
 			</table>
