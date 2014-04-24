@@ -2,6 +2,7 @@ $(document).ready(function() {
   addItem();
   toggleItemComplete();
   deleteItem();
+  $('.items tbody').sortable();
 });
 
 function addItem() {
