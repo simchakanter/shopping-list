@@ -33,19 +33,8 @@ h1 {
 	height: 50px;
 }
 
-.list-header {
-	width: 100%;
-	height: 50px;
-}
-
-.list-header button {
-	margin: 10px 10px;
-}
-
-.list-header a {
-	margin-top: 10px;
-	margin-left: 10px;
-	display: block;
+.new-item-field {
+	width: 300px;
 }
 
 .items {
