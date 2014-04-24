@@ -11,8 +11,6 @@ function addItem() {
     if (event.which == enterKey) {
       var item = $('.new-item-field').val();
       var newItemRow = "<tr class='item'><td class='checkbox checkbox-incomplete'></td><td class='item-name'>" + item + "</td><td class='item-delete'><a href='#''><img src='images/trash.png' alt='Delete'></a></td></tr>";
-      console.log(item);
-      console.log(newItemRow);
       $('.items tbody').append(newItemRow);
       $(this).val("");
     }
