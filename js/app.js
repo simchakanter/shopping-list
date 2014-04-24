@@ -19,12 +19,21 @@ function addItem() {
 }
 
 function toggleItemComplete() {
-  $('.checkbox').click(function() {
+  $('.items').on('click', '.checkbox', function() {
     if ($(this).hasClass('checkbox-incomplete')) {
       $(this).addClass('checkbox-complete').removeClass('checkbox-incomplete');
+      $(this).closest('tr').find('.item-name').addClass('completed');
     }
     else {
       $(this).addClass('checkbox-incomplete').removeClass('checkbox-complete');
+      $(this).closest('tr').find('.item-name').removeClass('completed');
+
     }
+  });
+}
+
+function deleteItem() {
+  $('.items').on('click','.item-delete',function() {
+    $(this).parent().remove();
   });
 }
