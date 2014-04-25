@@ -1,17 +1,23 @@
+var enterKey = 13;
+
 $(document).ready(function() {
+  // Functions
   addItem();
   toggleItemComplete();
   deleteItem();
-  $('.items tbody').sortable();
+  editItem();
+  updateItem();
+  
+  // Global UI effects
+  $('.items').sortable();
 });
 
 function addItem() {
-  var enterKey = 13;
   $('.new-item-field').keydown(function(event) {
     if (event.which == enterKey) {
       var item = $('.new-item-field').val();
-      var newItemRow = "<tr class='item'><td class='checkbox checkbox-incomplete'></td><td class='item-name'>" + item + "</td><td class='item-delete'><a href='#''><img src='images/trash.png' alt='Delete'></a></td></tr>";
-      $('.items tbody').append(newItemRow);
+      var newItemRow = "<li class='item'><span class='checkbox checkbox-incomplete'></span><span class='item-name'>" + item + "</span><span class='item-input'><input type='text'></span><span class='item-delete right'></span></li>";
+      $('.items').append(newItemRow);
       $(this).val("");
     }
   });
@@ -21,11 +27,11 @@ function toggleItemComplete() {
   $('.items').on('click', '.checkbox', function() {
     if ($(this).hasClass('checkbox-incomplete')) {
       $(this).addClass('checkbox-complete').removeClass('checkbox-incomplete');
-      $(this).closest('tr').find('.item-name').addClass('completed');
+      $(this).closest('.item').find('.item-name').addClass('completed');
     }
     else {
       $(this).addClass('checkbox-incomplete').removeClass('checkbox-complete');
-      $(this).closest('tr').find('.item-name').removeClass('completed');
+      $(this).closest('.item').find('.item-name').removeClass('completed');
 
     }
   });
@@ -35,4 +41,31 @@ function deleteItem() {
   $('.items').on('click','.item-delete',function() {
     $(this).parent().remove();
   });
+}
+
+function editItem() {
+  $('.items').on('dblclick','.item-name',function() {
+    $(this).hide();
+    console.log($(this).text());
+    $(this).closest('.item').find('input').val($(this).text());
+    $(this).closest('.item').find('.item-input').show();
+
+  });
+}
+
+function updateItem() {
+  $('.items').on('keyup','.item-input input', function(event) {
+    if (event.which == enterKey) {
+      exitEditMode($(this));
+    }
+  });
+  $('.items').on('blur','.item-input input', function() {
+    exitEditMode($(this));
+  });
+}
+
+function exitEditMode(self) {
+  self.closest('.item').find('.item-name').text(self.val());
+  self.closest('.item-input').hide();
+  self.closest('.item').find('.item-name').show();
 }

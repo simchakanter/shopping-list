@@ -12,11 +12,11 @@ body {
 	width: 650px;
 }
 
-.pull-right {
+.right {
 	float: right;
 }
 
-.pull-left {
+.left {
 	float: left;
 }
 
@@ -42,17 +42,16 @@ h1 {
 	width: 100%;
 }
 
-.item td {
+.item {
 	padding-top: 5px;
 	padding-bottom: 5px;
-}
-
-.item {
 	border-bottom: 1px solid gray;
 }
 
 .checkbox {
 	width: 20px;
+	height: 15px;
+	display: inline-block;
 }
 
 .checkbox-complete {
@@ -69,16 +68,28 @@ h1 {
 	background-size: 13px;
 }
 
+.item-name {
+	cursor: move;
+	/*display: none;*/
+}
+
+.item-input {
+	display: none;
+}
+
+.item input[type="text"] {
+	width: 90%;
+}
+
 .completed {
 	text-decoration: line-through;
 }
 
 .item-delete {
+	display: inline-block;
 	width: 20px;
-/*	background: url('../images/trash.png') no-repeat center center;
-	background-size: 15px;*/
-}
-
-.item-delete img {
-	width: 75%;
+	height: 20px;
+	background: url('../images/trash.png') no-repeat center center;
+	background-size: 15px;
+	cursor: default;
 }
