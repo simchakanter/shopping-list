@@ -16,9 +16,11 @@ function addItem() {
   $('.new-item-field').keydown(function(event) {
     if (event.which == enterKey) {
       var item = $('.new-item-field').val();
-      var newItemRow = "<li class='item'><span class='checkbox checkbox-incomplete'></span><span class='item-name'>" + item + "</span><span class='item-input'><input type='text'></span><span class='item-delete right'></span></li>";
-      $('.items').append(newItemRow);
-      $(this).val("");
+      if (item.trim()) {
+        var newItemRow = "<li class='item'><span class='checkbox checkbox-incomplete'></span><span class='item-name'>" + item + "</span><span class='item-input'><input type='text'></span><span class='item-delete right'></span></li>";
+        $('.items').append(newItemRow);
+        $(this).val("");
+      }
     }
   });
 }
@@ -49,7 +51,7 @@ function editItem() {
     console.log($(this).text());
     $(this).closest('.item').find('input').val($(this).text());
     $(this).closest('.item').find('.item-input').show();
-
+    $(this).closest('.item').find('input').focus();
   });
 }
 
@@ -65,7 +67,11 @@ function updateItem() {
 }
 
 function exitEditMode(self) {
-  self.closest('.item').find('.item-name').text(self.val());
-  self.closest('.item-input').hide();
-  self.closest('.item').find('.item-name').show();
+  if (self.val().trim()) {
+    self.closest('.item').find('.item-name').text(self.val());
+    self.closest('.item-input').hide();
+    self.closest('.item').find('.item-name').show();
+  } else {
+    self.closest('li').remove();
+  }
 }
